@@ -1,0 +1,210 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol,
+ul {
+	list-style: none;
+}
+blockquote,
+q {
+	quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: "";
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/***************** ROOT AND GLOBAL CODE *******************/
+* {
+	box-sizing: border-box;
+}
+
+@font-face {
+	font-family: "Zelda";
+	src: url("./assets/HyliaSerifBeta-Regular.otf");
+}
+
+:root {
+	scroll-behavior: smooth;
+	/* Colors */
+	--color-black: #816d6d;
+	--color-gold: #aa923c;
+	--color-white: #fff;
+	--color-darkgrey: #747474;
+	--color-blue: #519fbe;
+	/* Typefaces */
+	--display-font: "Zelda", cursive;
+	--text-font: "Raleway", sans-serif;
+}
+
+body {
+	background: url(./assets/screen-1.jpg) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	font-family: var(--text-font);
+	margin: 30px 50px;
+	width: 90vw;
+	height: 90vh;
+	overflow: hidden;
+}
+
+.hide {
+	display: none;
+}
+
+h1 {
+	font-family: var(--display-font);
+	color: var(--color-gold);
+	font-size: 60px;
+	text-align: center;
+	margin: 10px 0;
+	text-shadow: 3px 3px 5px #fff;
+}
+h2 {
+	font-family: var(--display-font);
+	font-size: 27px;
+	text-align: center;
+	color: var(--color-black);
+}
+
+button {
+	background-color: transparent;
+	border: 4px var(--color-gold);
+	border-style: double solid;
+	padding: 10px 20px;
+	color: var(--color-gold);
+	font-family: var(--display-font);
+	margin: 20px;
+	font-size: 16px;
+	cursor: pointer;
+	transition: 0.5s;
+	outline-style: none;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+button:hover {
+	border: 4px var(--color-blue);
+	border-style: double solid;
+	color: var(--color-blue);
+	transform: scale(1.1);
+}
+nav {
+	margin: 10%;
+	display: flex;
+	justify-content: center;
+}
