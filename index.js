@@ -30,11 +30,13 @@ nav.addEventListener('click', (e) => {
 		quiz.classList.add('anime');
 		todo.classList.add('hide');
 		nav.classList.add('hide');
+		todo.classList.remove('anime');
 	} else if (e.target.id === 'btnT') {
-		quiz.classList.add('hide');
 		todo.classList.remove('hide');
 		todo.classList.add('anime');
 		nav.classList.add('hide');
+		quiz.classList.add('hide');
+		quiz.classList.remove('anime');
 	}
 });
 

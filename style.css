@@ -185,14 +185,28 @@ h2 {
 }
 /************animation ********/
 .anime {
-	animation: change 1s linear 0s alternate;
+	animation: appear 1.5s ease-in-out;
 }
-@keyframes change {
+@keyframes appear {
 	0% {
 		opacity: 0;
+		transform: translateX(110%);
 	}
 	100% {
 		opacity: 1;
+		transform: translateX(0%);
+	}
+}
+.anime2 {
+	animation: disappear 1.5s ease-in-out;
+}
+@keyframes disappear {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+		display: none;
 	}
 }
 
@@ -473,7 +487,7 @@ input[type="text"] {
 	color: var(--color-white);
 }
 .todo-add .add .btn {
-	height: 60%;
+	height: 45px;
 	width: 50%;
 	justify-self: center;
 }
@@ -555,4 +569,50 @@ input[type="text"] {
 .edit-form button:hover {
 	border-color: var(--color-blue);
 	color: var(--color-blue);
+}
+
+/********mobile*********/
+@media only screen and (max-width: 600px) {
+	body {
+		height: auto;
+		overflow: scroll;
+	}
+	nav {
+		flex-direction: column;
+	}
+	.todo-display {
+		grid-template: 1fr 2fr/1fr;
+		padding: 10%;
+		height: auto;
+		row-gap: 20px;
+	}
+	section {
+		margin: 10% 0 10% 0;
+		height: auto;
+	}
+	.quiz-display {
+		display: grid;
+		grid-template: 1fr 2fr/1fr;
+		padding: 10%;
+		height: auto;
+		row-gap: 20px;
+	}
+	.quizForm {
+		display: grid;
+		height: 100%;
+		row-gap: 20px;
+	}
+	.result-div {
+		row-gap: 20px;
+	}
+	.todo-tasks form input[type="text"] {
+		width: 100%;
+		margin: 20px 0;
+	}
+	.edit-form {
+		row-gap: 10px;
+	}
+	.tasks {
+		height: 400px;
+	}
 }
