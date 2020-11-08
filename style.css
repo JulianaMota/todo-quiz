@@ -144,8 +144,9 @@ table {
 	--color-black: #816d6d;
 	--color-gold: #aa923c;
 	--color-white: #fff;
-	--color-darkgrey: #747474;
+	--color-darkblue: #1d465e;
 	--color-blue: #519fbe;
+	--color-grey: #272727;
 	/* Typefaces */
 	--display-font: "Zelda", cursive;
 	--text-font: "Raleway", sans-serif;
@@ -158,10 +159,10 @@ body {
 	-o-background-size: cover;
 	background-size: cover;
 	font-family: var(--text-font);
-	margin: 30px 50px;
-	width: 90vw;
+	margin: 3% 10%;
 	height: 90vh;
 	overflow: hidden;
+	position: relative;
 }
 
 .hide {
@@ -182,7 +183,20 @@ h2 {
 	text-align: center;
 	color: var(--color-black);
 }
+/************animation ********/
+.anime {
+	animation: change 1s linear 0s alternate;
+}
+@keyframes change {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
 
+/******button style******/
 button {
 	background-color: transparent;
 	border: 4px var(--color-gold);
@@ -203,8 +217,342 @@ button:hover {
 	color: var(--color-blue);
 	transform: scale(1.1);
 }
+
+/***input btn**/
+.btn {
+	background-color: transparent;
+	border: 4px var(--color-gold);
+	border-style: double solid;
+	padding: 5px 20px;
+	color: var(--color-gold);
+	font-family: var(--display-font);
+	font-size: 16px;
+	cursor: pointer;
+	transition: 0.5s;
+	outline-style: none;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.btn:hover {
+	border: 4px var(--color-blue);
+	border-style: double solid;
+	color: var(--color-blue);
+	transform: scale(1.1);
+}
+/***back button**/
+.back {
+	border: none;
+	box-shadow: none;
+	font-size: 20px;
+	margin: 0;
+	padding: 0;
+	color: var(--color-blue);
+	justify-self: flex-start;
+}
+.back i {
+	margin-right: 5px;
+	font-size: 14px;
+}
+.back:hover {
+	border: none;
+	transform: none;
+	color: var(--color-white);
+}
+/***nav**/
 nav {
 	margin: 10%;
 	display: flex;
 	justify-content: center;
+}
+
+/****section style****/
+section {
+	background-color: rgba(29, 70, 94, 0.9);
+	margin: 4% 0 0 0;
+	height: 70%;
+	position: relative;
+	box-sizing: border-box;
+	border-radius: 20px;
+}
+
+/****SCROLL BAR****/
+/* width */
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: var(--color-black);
+	border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: var(--color-blue);
+	border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: #555;
+}
+
+/******QUIZ*****/
+
+.quiz-display {
+	display: grid;
+	grid-template: 1fr/1fr 2fr;
+	padding: 3%;
+	height: 100%;
+}
+/******RESULT PART****/
+.result-div {
+	display: grid;
+	grid-template: auto 1fr 3fr/1fr;
+	height: 100%;
+}
+.quiz-display h2 {
+	color: var(--color-gold);
+	font-size: 30px;
+	align-self: center;
+}
+.result {
+	text-align: center;
+	color: var(--color-gold);
+	font-size: 20px;
+	display: grid;
+	row-gap: 10%;
+	align-content: flex-start;
+	height: 100%;
+}
+.result .percentage {
+	font-weight: 800;
+	font-size: 30px;
+}
+
+/******QUESTIONS PART****/
+.quizForm {
+	display: grid;
+	height: 100%;
+}
+.quizForm .btn-quiz {
+	justify-self: center;
+	align-self: center;
+}
+.questions {
+	background-color: rgba(81, 159, 190, 0.6);
+	padding: 5% 7%;
+	border-radius: 20px;
+	overflow-y: scroll;
+	display: grid;
+	row-gap: 10%;
+	color: var(--color-grey);
+	height: 280px;
+}
+.one-question {
+	display: grid;
+	row-gap: 20%;
+}
+.questions p {
+	font-weight: 800;
+	margin: 20px 0 0 0;
+}
+
+/*radio buttons*/
+.container {
+	position: relative;
+	padding-left: 0px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.container input {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+	z-index: 1;
+	margin: 0;
+}
+.container label {
+	padding-left: 30px;
+	cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 15px;
+	width: 15px;
+	background-color: #eee;
+	border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+	background-color: var(--color-gold);
+}
+.container:hover {
+	color: var(--color-gold);
+	font-weight: 800;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+	background-color: var(--color-gold);
+	color: var(--color-gold);
+	box-shadow: 1px 1px 4px #000;
+}
+.container input:checked ~ label {
+	color: var(--color-gold);
+	font-weight: 800;
+	text-shadow: 2px 2px 4px #000;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+	content: "";
+	position: absolute;
+	display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+	display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+	top: 5px;
+	left: 5px;
+	width: 5px;
+	height: 5px;
+	border-radius: 50%;
+	background: white;
+}
+
+/*******title and add form*******/
+.todo-display {
+	display: grid;
+	grid-template: 1fr/1fr 2fr;
+	padding: 3%;
+	height: 100%;
+	column-gap: 5%;
+}
+.todo-add {
+	display: grid;
+	grid-template: auto 1fr 2fr/ 1fr;
+	color: var(--color-grey);
+}
+
+.todo-add h2 {
+	align-self: center;
+	color: var(--color-gold);
+}
+
+.todo-add .add {
+	font-weight: 600;
+	grid-template: auto auto auto /1fr;
+}
+.todo-add .add label {
+	align-self: center;
+	font-weight: 800;
+	font-size: 18px;
+}
+input[type="text"] {
+	height: 40px;
+	border-radius: 20px;
+	border: none;
+	background-color: var(--color-grey);
+	padding: 4%;
+	font-size: 16px;
+	color: var(--color-white);
+}
+.todo-add .add .btn {
+	height: 60%;
+	width: 50%;
+	justify-self: center;
+}
+
+/*******tasks*******/
+.todo-tasks {
+	display: grid;
+	grid-template: 1fr 4fr /1fr;
+}
+.todo-tasks form label {
+	font-size: 18px;
+}
+.todo-tasks form input[type="text"] {
+	padding: 3%;
+}
+.tasks {
+	background-color: rgba(81, 159, 190, 0.6);
+	padding: 5% 7%;
+	border-radius: 20px;
+	overflow-y: scroll;
+	row-gap: 10%;
+	color: var(--color-grey);
+	height: 250px;
+}
+.tasks li {
+	background-color: var(--color-darkblue);
+	margin-bottom: 2%;
+	padding: 2% 3%;
+	color: var(--color-white);
+	display: grid;
+	grid-template: 1fr/ 6fr 1fr 1fr 1fr;
+	border-radius: 20px;
+}
+.tasks li span {
+	justify-self: flex-start;
+}
+.tasks li i {
+	justify-self: center;
+	cursor: pointer;
+}
+.tasks li i:hover {
+	color: var(--color-blue);
+}
+.tasks li i.delete:hover {
+	color: rgb(238, 83, 83);
+}
+.tasks li i.done:hover {
+	color: rgb(118, 255, 130);
+}
+.tasks li i.undone:hover {
+	color: rgb(118, 255, 130);
+}
+
+.edit-form {
+	display: grid;
+	grid-template: auto 1fr auto auto/1fr;
+	height: 100%;
+}
+.edit-form button {
+	margin: 0;
+	padding: 5px 20px;
+	border-color: var(--color-grey);
+	color: var(--color-grey);
+}
+.edit-form label {
+	align-self: center;
+	font-weight: 800;
+	font-size: 18px;
+}
+.edit-form .btn,
+.edit-form button {
+	width: 50%;
+	justify-self: center;
+	margin: 3%;
+}
+.edit-form input[type=text] {
+	align-self: center;
+}
+.edit-form button:hover {
+	border-color: var(--color-blue);
+	color: var(--color-blue);
 }

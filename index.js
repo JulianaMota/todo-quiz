@@ -10,6 +10,7 @@ const doneTasks = document.querySelector('.done');
 const searchForm = document.querySelector('.search input');
 const modalDiv = document.querySelector('.modal');
 const backBtn = document.querySelectorAll('.back');
+addForm.style.display = 'grid';
 
 //back
 backBtn.forEach((btn) => {
@@ -26,11 +27,13 @@ nav.addEventListener('click', (e) => {
 	e.preventDefault();
 	if (e.target.id === 'btnQ') {
 		quiz.classList.remove('hide');
+		quiz.classList.add('anime');
 		todo.classList.add('hide');
 		nav.classList.add('hide');
 	} else if (e.target.id === 'btnT') {
 		quiz.classList.add('hide');
 		todo.classList.remove('hide');
+		todo.classList.add('anime');
 		nav.classList.add('hide');
 	}
 });
@@ -52,7 +55,7 @@ quizForm.addEventListener('submit', (e) => {
 
 	let output = 0;
 	const timer = setInterval(() => {
-		result.querySelector('span').textContent = `${output}%`;
+		result.querySelector('.percentage').textContent = `${output}%`;
 		if (output === score) {
 			clearInterval(timer);
 		} else {
@@ -98,7 +101,7 @@ tasks.addEventListener('click', (e) => {
 		tasks.appendChild(e.target.parentElement);
 	} else if (e.target.classList.contains('undone')) {
 		//if undone
-		e.target.parentElement.children[1].classList = 'far fa-check-circle delete';
+		e.target.parentElement.children[1].classList = 'far fa-check-circle done';
 		e.target.parentElement.style.opacity = '1';
 		e.target.parentElement.remove();
 		tasks.insertBefore(e.target.parentElement, tasks.firstChild);
@@ -108,6 +111,7 @@ tasks.addEventListener('click', (e) => {
 	} else if (e.target.classList.contains('edit')) {
 		//if edit
 		openModal(e.target.parentElement);
+		addForm.style.display = 'none';
 	}
 });
 
@@ -132,11 +136,11 @@ const openModal = (task) => {
 	modalDiv.classList.remove('hide');
 
 	const modal = `
-	<form class="edit-form" id="${task.id}">
-		<button class="close">X</button>
-		<label class="">Task: </label>
-		<input type="text" class="" name="update" value="${task.textContent.trim()}">
-		<input type="submit" value="Update">
+	<form class="edit-form" id="${task.id}">	
+		<label class="">Update a Task: </label>
+		<input type="text" name="update" value="${task.textContent.trim()}">
+		<input type="submit" value="Update" class="btn">
+		<button class="close">Cancel</button>
 	</form>
 	`;
 
@@ -155,9 +159,11 @@ const editForm = (e) => {
 		}
 	});
 	modalDiv.classList.add('hide');
+	addForm.style.display = 'grid';
 };
 
 //close modal
 const closeModal = () => {
 	modalDiv.classList.add('hide');
+	addForm.style.display = 'grid';
 };
