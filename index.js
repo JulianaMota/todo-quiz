@@ -10,12 +10,15 @@ const doneTasks = document.querySelector('.done');
 const searchForm = document.querySelector('.search input');
 const modalDiv = document.querySelector('.modal');
 const backBtn = document.querySelectorAll('.back');
+
 addForm.style.display = 'grid';
+const body = document.querySelector('body');
 
 //back
 backBtn.forEach((btn) => {
 	btn.addEventListener('click', (e) => {
-		e.preventDefault();
+		body.style.backgroundImage = 'url(./assets/screen-1.jpg)';
+		console.log(body);
 		nav.classList.remove('hide');
 		todo.classList.add('hide');
 		quiz.classList.add('hide');
@@ -31,12 +34,17 @@ nav.addEventListener('click', (e) => {
 		todo.classList.add('hide');
 		nav.classList.add('hide');
 		todo.classList.remove('anime');
+		body.style.background = 'url(./assets/u4rW8T.png) no-repeat center center fixed';
+		body.style.backgroundSize = 'cover';
 	} else if (e.target.id === 'btnT') {
 		todo.classList.remove('hide');
 		todo.classList.add('anime');
 		nav.classList.add('hide');
 		quiz.classList.add('hide');
 		quiz.classList.remove('anime');
+		body.style.background =
+			'url(./assets/25e33546771abd811cb3757d92981e6c.jpg) no-repeat center center fixed';
+		body.style.backgroundSize = 'cover';
 	}
 });
 
@@ -130,7 +138,7 @@ const filterTasks = (searchValue) => {
 
 	Array.from(tasks.children)
 		.filter((task) => task.textContent.toLowerCase().includes(searchValue))
-		.forEach((task) => (task.style.display = 'block'));
+		.forEach((task) => (task.style.display = 'grid'));
 };
 
 //edit task
